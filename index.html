@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de stage - Thomas Bidault</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon-256x256.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Rapport de stage de Thomas Bidault - Étudiant en chef de projet digital à l'ESD">
+    <meta name="keywords" content="rapport de stage, chef de projet digital, développement web, Precofi Invest, immobilier">
+    <meta name="author" content="Thomas Bidault">
+    <meta name="theme-color" content="#6366f1">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Avertissement navigateur Safari -->
+    <div id="safari-warning" class="safari-warning hidden">
+        <div class="safari-warning-content">
+            <div class="safari-warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="safari-warning-text">
+                <h3>Attention !</h3>
+                <p>Certaines fonctionnalités peuvent ne pas fonctionner correctement sur Safari. Je vous recommande d'utiliser Chrome, Firefox ou Edge pour une meilleure expérience.</p>
+            </div>
+            <button class="safari-warning-close" id="safari-warning-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Écran de chargement -->
+    <div id="loading-screen" class="screen active">
+        <div class="loading-content">
+            <div class="start-prompt" id="start-prompt">
+                <span class="prompt-text">cliquez ici</span>
+                <div class="prompt-pulse"></div>
+            </div>
+            <div class="typing-container" id="typing-container" style="display: none;">
+                <span id="typing-text" class="typing-text"></span>
+                <span id="cursor" class="cursor">|</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Écran principal - Cube 3D -->
+    <div id="main-screen" class="screen">
+        <!-- Ciel étoilé -->
+        <div class="starfield" id="starfield"></div>
+        <div class="shooting-stars" id="shooting-stars"></div>
+        <div class="space-particles" id="space-particles"></div>
+        <div class="asteroids" id="asteroids"></div>
+        
+        <!-- Nuages -->
+        <div class="nebula purple" style="width: 300px; height: 300px; top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="nebula blue" style="width: 400px; height: 400px; top: 60%; right: 15%; animation-delay: -5s;"></div>
+        <div class="nebula pink" style="width: 250px; height: 250px; bottom: 20%; left: 10%; animation-delay: -10s;"></div>
+        
+        <!-- Мобильный горизонтальный слайдер -->
+        <div class="mobile-slider-container" id="mobile-slider">
+            <div class="mobile-slides-wrapper" id="mobile-slides-wrapper">
+                <!-- Slide 1: Accueil -->
+                <div class="mobile-slide" data-slide="0">
+                    <div class="face-content">
+                        <h1 class="main-title">Rapport de stage</h1>
+                        <p class="main-subtitle">Thomas Bidault - Chef de projet digital</p>
+                        <div class="main-tagline">Stage chez Precofi Invest</div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2: À propos -->
+                <div class="mobile-slide" data-slide="1">
+                    <div class="face-content">
+                        <h2 class="face-title">À propos</h2>
+                        <div class="about-content">
+                            <div class="intro-section">
+                                <h3><strong>Thomas Bidault</strong></h3>
+                                <div class="education-cards">
+                                    <div class="education-card">
+                                        <i class="fas fa-user-tie"></i>
+                                        <div class="education-text">
+                                            <span class="degree">Chef de Projet Digital</span>
+                                            <span class="field">Formation professionnelle</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="experience-cards">
+                                    <div class="experience-card">
+                                        <i class="fas fa-building"></i>
+                                        <div class="experience-text">
+                                            <span class="company">Precofi Invest</span>
+                                            <span class="period">Février 2025 - Juillet 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="principles-section">
+                                <h4>Missions du stage</h4>
+                                <div class="principles-grid">
+                                    <div class="principle-card">
+                                        <i class="fas fa-building"></i>
+                                        <h5>Direction de projet</h5>
+                                        <p>Gestion et oraganisation des tâches</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <i class="fas fa-code"></i>
+                                        <h5>Technique</h5>
+                                        <p>Création du site internet</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <i class="fas fa-users"></i>
+                                        <h5>Management</h5>
+                                        <p>Coordination des équipes</p>
+                                    </div>
+                                    <div class="principle-card">
+                                        <i class="fas fa-growth"></i>
+                                        <h5>Expertise</h5>
+                                        <p>Apprendre le métier de l'immobilier</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="motivation-section">
+                                <p class="motivation-text">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <strong>Une vrai expérience avec des projets réels</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3: Compétences -->
+                <div class="mobile-slide" data-slide="2">
+                    <div class="face-content">
+                        <h2 class="face-title">Compétences</h2>
+                        <div class="skills-grid">
+                            <!-- Compétence 1: Gestion de projet -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-tasks"></i>
+                                        <span>Gestion de projet</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>Gestion de projet</h4>
+                                        <p>J'ai développé une capacité à piloter des projets numériques de A à Z, en assurant la coordination des équipes et le respect des délais.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compétence 2: Développement -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-code"></i>
+                                        <span>Développement</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>Développement</h4>
+                                        <p>J'ai acquis une solide expérience dans le développement web, en particulier avec React et JavaScript, ainsi qu'une bonne compréhension des technologies backend.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compétence 3: Planification -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>Planification</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>Planification</h4>
+                                        <p>J'ai acquis une méthode de travail rigoureuse pour découper un projet complexe en tâches réalisables et pour créer des plannings réalistes.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compétence 4: Communication -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <span>Communication</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>Communication</h4>
+                                        <p>J'ai compris l'importance de maintenir une communication claire et régulière avec toutes les parties prenantes pour assurer l'alignement et le succès du projet.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compétence 5: UI/UX Design -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-paint-brush"></i>
+                                        <span>UI/UX Design</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>UI/UX Design</h4>
+                                        <p>J'ai développé une sensibilité pour l'expérience utilisateur, en m'assurant que le site soit non seulement fonctionnel mais aussi intuitif et agréable à utiliser.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Compétence 6: Responsive Design -->
+                            <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                <div class="skill-card-inner">
+                                    <div class="skill-card-front">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Responsive Design</span>
+                                    </div>
+                                    <div class="skill-card-back">
+                                        <h4>Responsive Design</h4>
+                                        <p>J'ai veillé à ce que l'expérience soit optimale sur tous les appareils, du grand écran d'ordinateur au smartphone, un enjeu crucial aujourd'hui.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4: Expérience -->
+                <div class="mobile-slide" data-slide="3">
+                    <div class="face-content">
+                        <h2 class="face-title">Expérience</h2>
+                        <div class="experience-content-detailed">
+
+                                <div class="experience-section">
+                                    <h4>Mon Rôle et le Contexte</h4>
+                                    <p>En tant que Chef de Projet Digital chez Precofi Invest, ma mission principale était de piloter la création de leur nouvelle plateforme web, <a href="https://precofi.eu" target="_blank">precofi.eu</a>. L'objectif était de moderniser leur présence en ligne et de fournir un outil performant pour la consultation de leurs biens immobiliers. J'ai eu la chance de travailler dans un environnement stimulant qui valorise l'autonomie et la prise d'initiative.</p>
+                                </div>
+
+                                <div class="experience-section">
+                                    <h4>Mes Missions Concrètes</h4>
+                                    <p>Mon travail s'est articulé autour de plusieurs axes clés :</p>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Analyse des besoins et conception :</strong> J'ai commencé par définir le cahier des charges en collaboration avec la direction, puis j'ai réalisé les maquettes et les wireframes pour structurer l'expérience utilisateur.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Pilotage du développement :</strong> J'ai coordonné le travail de l'équipe technique, organisé les sprints de développement et veillé au respect des délais et de la qualité du code.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Développement de fonctionnalités :</strong> J'ai personnellement contribué au développement de la carte interactive des biens, une fonctionnalité centrale du site, ainsi qu'à l'intégration du back-office de gestion.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Optimisation et SEO :</strong> J'ai mené un travail de fond sur l'optimisation des performances du site et mis en place les bases d'une stratégie de référencement naturel (SEO) pour assurer sa visibilité.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="experience-section">
+                                    <h4>Mon Ressenti sur cette Expérience</h4>
+                                    <p>Ce stage a été une expérience humaine et professionnelle extrêmement riche. J'ai particulièrement apprécié la confiance que l'équipe de Precofi Invest m'a accordée. Cela m'a permis de sortir de ma zone de confort et de prendre des responsabilités importantes. L'ambiance de travail, à la fois sérieuse et bienveillante, a été un vrai moteur. Ressentir que ma contribution avait un impact réel et voir le projet prendre vie jour après jour a été ma plus grande source de satisfaction. Cette expérience a solidifié ma volonté de poursuivre dans la gestion de projet digital, un domaine où la technique et l'humain se rencontrent.</p>
+                                </div>
+
+                            </div>
+                        <ul class="achievements">
+                            <li>Résolution des problèmes avec le message broker</li>
+                            <li>Réécriture des procédures SQL en code Java</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Slide 5: Projets -->
+                <div class="mobile-slide" data-slide="4">
+                    <div class="face-content">
+                        <h2 class="face-title">Projets</h2>
+                        <div class="projects-content" id="mobile-projects-content">
+                            <div class="projects-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>Téléchargement des projets...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 6: Contact -->
+                <div class="mobile-slide" data-slide="5">
+                    <div class="face-content">
+                        <h2 class="face-title">Contact</h2>
+                        <div class="contact-links">
+                            <a href="https://github.com/MrFrosas" target="_blank" class="contact-link">
+                                <i class="fab fa-github"></i>
+                                <span>Github</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/thomas-bidaultt" target="_blank" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="mailto:thomas.bidault@ccsglobal.fr" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                            <button class="download-btn" onclick="downloadPDF()">
+                                <i class="fas fa-download"></i>
+                                <span>Télécharger le rapport</span>
+                            </button>
+                        </div>
+                        <div class="contact-cta">
+                            Construisons ensemble quelque chose d'extraordinaire
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation mobile -->
+            <div class="mobile-navigation" id="mobile-navigation">
+                <button class="mobile-nav-btn" id="mobile-prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="mobile-slide-indicators" id="mobile-slide-indicators">
+                    <div class="mobile-slide-indicator active" data-slide="0"></div>
+                    <div class="mobile-slide-indicator" data-slide="1"></div>
+                    <div class="mobile-slide-indicator" data-slide="2"></div>
+                    <div class="mobile-slide-indicator" data-slide="3"></div>
+                    <div class="mobile-slide-indicator" data-slide="4"></div>
+                    <div class="mobile-slide-indicator" data-slide="5"></div>
+                </div>
+                
+                <button class="mobile-nav-btn" id="mobile-next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="cube-container">
+            <div class="cube-scene">
+                <div class="cube" id="cube">
+                    <!-- Face avant - Accueil -->
+                    <div class="cube-face cube-face--front" data-face="front">
+                        <div class="face-content">
+                            <h1 class="main-title">Thomas Bidault</h1>
+                            <p class="main-subtitle">Développeur web | Chef de projet digital</p>
+                            <div class="main-tagline">Je vis en codant.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Face droite - À propos -->
+                    <div class="cube-face cube-face--right" data-face="right">
+                        <div class="face-content">
+                            <h2 class="face-title">À propos</h2>
+                            <div class="about-content">
+                                <div class="intro-section">
+                                    <h3><strong>Thomas Bidault</strong></h3>
+                                    <div class="education-cards">
+                                        <div class="education-card">
+                                            <i class="fas fa-user-tie"></i>
+                                            <div class="education-text">
+                                                <span class="degree">Chef de Projet Digital</span>
+                                                <span class="field">École supérieure du digital</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="experience-cards">
+                                        <div class="experience-card">
+                                            <i class="fas fa-building"></i>
+                                            <div class="experience-text">
+                                                <span class="company">Precofi Invest</span>
+                                                <span class="period">Février 2025 - Juillet 2025</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="principles-section">
+                                    <h4>Missions du stage</h4>
+                                    <div class="principles-grid">
+                                        <div class="principle-card">
+                                            <i class="fas fa-building"></i>
+                                            <h5>Direction de projet</h5>
+                                            <p>Gestion et oraganisation des tâches</p>
+                                        </div>
+                                        <div class="principle-card">
+                                            <i class="fas fa-code"></i>
+                                            <h5>Technique</h5>
+                                            <p>Création du site internet</p>
+                                        </div>
+                                        <div class="principle-card">
+                                            <i class="fas fa-users"></i>
+                                            <h5>Management</h5>
+                                            <p>Coordination des équipes</p>
+                                        </div>
+                                        <div class="principle-card">
+                                            <i class="fas fa-growth"></i>
+                                            <h5>Expertise</h5>
+                                            <p>Apprendre le métier de l'immobilier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="motivation-section">
+                                    <p class="motivation-text">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <strong>Une vrai expérience avec des projets réels</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Face arrière - Compétences -->
+                    <div class="cube-face cube-face--back" data-face="back">
+                        <div class="face-content">
+                            <h2 class="face-title">Compétences</h2>
+                            <div class="skills-grid">
+
+                                <!-- Compétence 1: Direction de projet -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-code"></i>
+                                            <span>Direction de projet</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>Direction de projet</h4>
+                                            <p>J'ai appris à superviser un projet de A à Z, en définissant les objectifs, en gérant les délais et en m'assurant que le résultat final corresponde aux attentes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Compétence 2: Management -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-users"></i>
+                                            <span>Management d'équipe</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>Management d'équipe</h4>
+                                            <p>Ce stage m'a permis de développer ma capacité à coordonner, motiver et communiquer efficacement avec les différents membres de l'équipe projet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Compétence 3: Planification -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-chart-line"></i>
+                                            <span>Planification</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>Planification</h4>
+                                            <p>J'ai acquis une méthode de travail rigoureuse pour découper un projet complexe en tâches réalisables et pour créer des plannings réalistes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Compétence 4: Communication -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-bullhorn"></i>
+                                            <span>Communication</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>Communication</h4>
+                                            <p>J'ai compris l'importance de maintenir une communication claire et régulière avec toutes les parties prenantes pour assurer l'alignement et le succès du projet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Compétence 5: UI/UX Design -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-paint-brush"></i>
+                                            <span>UI/UX Design</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>UI/UX Design</h4>
+                                            <p>J'ai développé une sensibilité pour l'expérience utilisateur, en m'assurant que le site soit non seulement fonctionnel mais aussi intuitif et agréable à utiliser.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Compétence 6: Responsive Design -->
+                                <div class="skill-card" onclick="this.classList.toggle('is-flipped');">
+                                    <div class="skill-card-inner">
+                                        <div class="skill-card-front">
+                                            <i class="fas fa-mobile-alt"></i>
+                                            <span>Responsive Design</span>
+                                        </div>
+                                        <div class="skill-card-back">
+                                            <h4>Responsive Design</h4>
+                                            <p>J'ai veillé à ce que l'expérience soit optimale sur tous les appareils, du grand écran d'ordinateur au smartphone, un enjeu crucial aujourd'hui.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Face gauche - Expérience -->
+                    <div class="cube-face cube-face--left" data-face="left">
+                        <div class="face-content">
+                            <h2 class="face-title">Expérience</h2>
+                            <div class="experience-content-detailed">
+
+                                <div class="experience-section">
+                                    <h4>Mon Rôle et le Contexte</h4>
+                                    <p>En tant que Chef de Projet Digital chez Precofi Invest, ma mission principale était de créer le site web, <a href="https://precofi.eu" target="_blank">precofi.eu</a>. L'objectif était de moderniser leur présence en ligne et de fournir un outil performant pour la consultation de leurs biens immobiliers. J'ai eu la chance de travailler dans un environnement saint qui valorise l'autonomie et la prise d'initiative.</p>
+                                </div>
+
+                                <div class="experience-section">
+                                    <h4>Mes Missions Concrètes</h4>
+                                    <p>Mon travail s'est articulé autour de plusieurs axes clés :</p>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Analyse des besoins et conception :</strong> J'ai commencé par définir le cahier des charges avec mon maitre d'alternance, puis j'ai réalisé les maquettes et les wireframes pour structurer l'expérience utilisateur.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Pilotage du développement :</strong> J'ai organisé les sprints de développement et veillé au respect des délais et de la qualité du code.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Développement de fonctionnalités :</strong> J'ai développé la carte interactive des biens, une fonctionnalité centrale du site, ainsi que l'intégration du back-office de gestion.</li>
+                                        <li><i class="fas fa-check-circle"></i> <strong>Optimisation et SEO :</strong> J'ai mené un travail de fond sur l'optimisation des performances du site et mis en place les bases d'une stratégie de référencement naturel (SEO) pour assurer sa visibilité.</li>
+                                    </ul>
+                                </div>
+
+                                <div class="experience-section">
+                                    <h4>Mon Ressenti sur cette Expérience</h4>
+                                    <p>Ce stage a été une expérience humaine et professionnelle extrêmement riche. J'ai particulièrement apprécié la confiance que l'équipe de Precofi Invest m'a accordée. Cela m'a permis de sortir de ma zone de confort et de prendre des responsabilités importantes. L'ambiance de travail, à la fois sérieuse et bienveillante, a été un vrai moteur. Ressentir que ma contribution avait un impact réel et voir le projet prendre vie jour après jour a été ma plus grande source de satisfaction. Cette expérience a solidifié ma volonté de poursuivre dans la gestion de projet digital, un domaine où la technique et l'humain se rencontrent.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Face supérieure - Projets -->
+                    <div class="cube-face cube-face--top" data-face="top">
+                        <div class="face-content">
+                            <h2 class="face-title">Projets</h2>
+                            <div class="projects-content" id="projects-content">
+                                <div class="projects-loading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <span>Téléchargement des projets...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Face inférieure - Contact -->
+                    <div class="cube-face cube-face--bottom" data-face="bottom">
+                        <div class="face-content">
+                            <h2 class="face-title">Contact</h2>
+                            <div class="contact-links">
+                <a href="https://github.com/MrFrosas" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/thomas-bidaultt" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:thomas.bidault@ccsglobal.fr" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                            </div>
+                            <div class="contact-cta">
+                                Construisons ensemble quelque chose d'extraordinaire
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="cube-navigation">
+                <button class="nav-btn active" data-target="front" title="Accueil">
+                    <i class="fas fa-home"></i>
+                </button>
+                <button class="nav-btn" data-target="right" title="À propos">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="nav-btn" data-target="back" title="Compétences">
+                    <i class="fas fa-code"></i>
+                </button>
+                <button class="nav-btn" data-target="left" title="Expérience">
+                    <i class="fas fa-briefcase"></i>
+                </button>
+                <button class="nav-btn" data-target="top" title="Projets">
+                    <i class="fas fa-rocket"></i>
+                </button>
+                <button class="nav-btn" data-target="bottom" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                </button>
+                
+                <!-- Séparateur -->
+                <div class="nav-divider"></div>
+                
+                <!-- Bouton de gestion de la musique -->
+                <button class="nav-btn music-btn" id="music-toggle" title="Musique">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+            
+            <!-- Aide pour mobile -->
+            <div class="mobile-hint" id="mobile-hint">
+                <i class="fas fa-hand-paper"></i>
+                <span>Glissez pour naviguer</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
